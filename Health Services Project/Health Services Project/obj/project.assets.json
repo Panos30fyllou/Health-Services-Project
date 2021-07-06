@@ -4333,6 +4333,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "HealthServicesProject.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/HealthServicesProject.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HealthServicesProject.Core.dll": {}
+        }
       }
     }
   },
@@ -11870,33 +11880,39 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "HealthServicesProject.Core/1.0.0": {
+      "type": "project",
+      "path": "../HealthServicesProject.Core/HealthServicesProject.Core.csproj",
+      "msbuildProject": "../HealthServicesProject.Core/HealthServicesProject.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "HealthServicesProject.Core >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ναυσικά\\.nuget\\packages\\": {},
+    "C:\\Users\\Panos30fyllou\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
+      "projectUniqueName": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
       "projectName": "Health Services Project",
-      "projectPath": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
-      "packagesPath": "C:\\Users\\Ναυσικά\\.nuget\\packages\\",
-      "outputPath": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\obj\\",
+      "projectPath": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
+      "packagesPath": "C:\\Users\\Panos30fyllou\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ναυσικά\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Panos30fyllou\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11910,7 +11926,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\HealthServicesProject.Core\\HealthServicesProject.Core.csproj": {
+              "projectPath": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\HealthServicesProject.Core\\HealthServicesProject.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
