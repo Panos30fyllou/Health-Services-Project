@@ -49,7 +49,7 @@ using Health_Services_Project;
             WriteLiteral("\r\n<h1>ΚΕΝΤΡΟ ΥΓΕΙΑΣ</h1>\r\n\r\n");
             EndContext();
             BeginContext(113, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "28de849721a2404eb92a66a67d560e84", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb7b439041b64380802170ae3e63a0e8", async() => {
                 BeginContext(148, 30, true);
                 WriteLiteral("Αποστολή Ακτινολογικής Εντολής");
                 EndContext();
