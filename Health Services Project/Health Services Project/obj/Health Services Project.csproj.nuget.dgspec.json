@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj": {}
+    "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj": {
+    "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
+        "projectUniqueName": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
         "projectName": "Health Services Project",
-        "projectPath": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
-        "packagesPath": "C:\\Users\\Panos30fyllou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Panos30fyllou\\Documents\\GitHub\\Health-Services-Project\\Health Services Project\\Health Services Project\\obj\\",
+        "projectPath": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\Health Services Project.csproj",
+        "packagesPath": "C:\\Users\\Ναυσικά\\.nuget\\packages\\",
+        "outputPath": "D:\\Health-Services-Project\\Health Services Project\\Health Services Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Panos30fyllou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ναυσικά\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
