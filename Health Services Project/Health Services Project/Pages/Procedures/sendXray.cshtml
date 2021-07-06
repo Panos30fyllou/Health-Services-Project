@@ -6,5 +6,31 @@
 <h1>Αποστολή Ακτινολογικής Εντολής</h1>
 
 <form>
-    <button type="submit"></button>
+    <label for="fname">Όνομα:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+
+    <label for="lname">Επίθετο:</label>
+    <input type="text" id="lname" name="lname"><br><br>
+
+    <label for="amka">AMKA:</label>
+    <input type="text" id="amka" name="amka"><br><br>
+
+    <label for="cars">Importance:</label>
+    <select name="importance" id="importance">
+        <option value="high">High</option>
+        <option value="normal">Normal</option>
+        <option value="low">Low</option>
+    </select>
+
+    <label for="description">Αιτιολογία:</label>
+    <input type="text" id="description" name="description"><br><br>
+
+    <label for="sentdate">Ημερομηνία αποστολής ακτονολογικής εντολής:</label>
+    <input type="date" id="sentdate" name="sentdate">
+
+    <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
+    <input type="date" id="recdate" name="recdate">
+
+    <input type="submit" value="Submit ">
+
 </form> 

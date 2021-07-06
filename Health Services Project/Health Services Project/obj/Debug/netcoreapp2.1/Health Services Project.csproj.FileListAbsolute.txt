@@ -40,3 +40,45 @@ C:\Users\Panos30fyllou\Documents\GitHub\Health-Services-Project\Health Services 
 C:\Users\Panos30fyllou\Documents\GitHub\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\PGN_Home.cshtml.g.cs
 C:\Users\Panos30fyllou\Documents\GitHub\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\PGN_Login.cshtml.g.cs
 C:\Users\Panos30fyllou\Documents\GitHub\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Procedures\sendXray.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.deps.json
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.runtimeconfig.json
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.runtimeconfig.dev.json
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.dll
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.pdb
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.Views.dll
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\Health Services Project.Views.pdb
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.csproj.AssemblyReference.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.AssemblyInfoInputs.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.AssemblyInfo.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.csproj.CoreCompileInputs.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.RazorAssemblyInfo.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.RazorAssemblyInfo.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.TagHelpers.input.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.TagHelpers.output.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.RazorCoreGenerate.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\About.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\HealthCenter_Home.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\HealthCenter_Login.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\Hospitals_Login.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\Hospital_Home.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\PGN_Home.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Hospitals\PGN_Login.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Index.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Procedures\sendXray.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.RazorTargetAssemblyInfo.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.RazorTargetAssemblyInfo.cs
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.Views.pdb
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.dll
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.pdb
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.genruntimeconfig.cache
+C:\Users\Ναυσικά\Source\Repos\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.csproj.CopyComplete
