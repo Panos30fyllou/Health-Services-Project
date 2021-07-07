@@ -13,8 +13,8 @@ namespace HealthServices.ServiceInterface
     {
         public XRayResponse Post(XRayRequest request)
         {
-            DatabaseController.Initialize();
-            return new XRayResponse();
+            //DatabaseController.Initialize();
+            return new XRayResponse() { Success = true };
         }
     }
 }

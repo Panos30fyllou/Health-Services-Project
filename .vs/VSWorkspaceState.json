@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HealthServices"
   ],
-  "SelectedNode": "\\HealthServices.sln",
+  "SelectedNode": "\\HealthServices\\HealthServices.sln",
   "PreviewInSolutionExplorer": false
 }

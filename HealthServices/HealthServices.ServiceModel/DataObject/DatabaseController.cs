@@ -8,7 +8,7 @@ namespace HealthServices.ServiceModel.DataObject
     public static class DatabaseController
     {
         static OrmLiteConnectionFactory dbFactory;
-        public bool Initialize(string connectionString)
+        public static bool Initialize(string connectionString)
         {
             dbFactory = new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider);
 

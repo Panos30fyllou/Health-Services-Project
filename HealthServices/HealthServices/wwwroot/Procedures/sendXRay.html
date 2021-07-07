@@ -5,15 +5,19 @@
     <title></title>
 </head>
 <body>
+    <script src="/js/servicestack-client.js"></script>
+    <script src="/dtos.js"></script>
     <script>
         function SendXRay() {
-            var request = new XRayRequest();
-            Object.assign(window, exports)
+            let client = new JsonServiceClient("https://localhost:5001/");
+
+            client.get(new Hello({ Name: 'World' }))
+                .then(r => document.getElementById("description").nodeValue = r.Result.toString());
         }
     </script>
     <h1>Αποστολή Ακτινολογικής Εντολής</h1>
 
-    <form method="post" id="form1" runat="server">
+    <form id="form1">
         <label for="importance">Προτεραιότητα:</label>
         <select name="importance" id="importance">
             <option value="high">High</option>
@@ -30,7 +34,7 @@
         <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
         <input type="date" id="recdate" name="recdate"><br><br>
 
-        <button type="submit" class="btn btn-primary">Αποστολή</button>
+        <button type="submit" class="btn btn-primary" OnClick="SendXRay()">Αποστολή</button>
     </form>
 </body>
 </html>
