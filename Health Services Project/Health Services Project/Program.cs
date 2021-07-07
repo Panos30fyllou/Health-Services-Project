@@ -12,6 +12,7 @@ namespace Health_Services_Project
 {
     public class Program
     {
+        public static string connectionString = "Server=DESKTOP-HBBRFN4\\SQLEXPRESS;Database=ReservationsTraining;Integrated Security=true;";
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
