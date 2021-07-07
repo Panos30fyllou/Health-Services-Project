@@ -53,12 +53,12 @@ using Health_Services_Project;
             WriteLiteral("\r\n<h1>ΠΕΡΙΦΕΡΕΙΑΚΟ ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ</h1>\r\n\r\n");
             EndContext();
             BeginContext(116, 261, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aba70511756a41d2bf44697cd35f6364", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37b7aa5ab36f4f8f91e15485b668c9cb", async() => {
                 BeginContext(135, 166, true);
                 WriteLiteral("\r\n    <label>Username</label>\r\n    <input type=\"text\" name=\"username\" />\r\n    <br />\r\n    <label>Password</label>\r\n    <input type=\"password\" name=\"password\" />\r\n    ");
                 EndContext();
                 BeginContext(301, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aeef324dd57f4fc6b5f52986a5d3a243", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "712e7a0a5ea54a67a646d28fa30765f4", async() => {
                     BeginContext(354, 5, true);
                     WriteLiteral("Login");
                     EndContext();
