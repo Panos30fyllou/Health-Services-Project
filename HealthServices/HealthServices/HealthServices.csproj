@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HealthServices.ServiceInterface\HealthServices.ServiceInterface.csproj" />
+    <ProjectReference Include="..\HealthServices.ServiceModel\HealthServices.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>

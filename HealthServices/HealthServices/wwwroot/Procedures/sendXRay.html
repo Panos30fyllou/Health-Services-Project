@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        
+    </script>
+    <h1>Αποστολή Ακτινολογικής Εντολής</h1>
+
+    <form method="post" id="form1" runat="server">
+        <label for="fname">Όνομα:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+
+        <label for="lname">Επίθετο:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+
+        <label for="amka">AMKA:</label>
+        <input type="text" id="amka" name="amka"><br><br>
+
+        <label for="importance">Προτεραιότητα:</label>
+        <select name="importance" id="importance">
+            <option value="high">High</option>
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+        </select><br><br>
+
+        <label for="description">Αιτιολογία:</label>
+        <input type="text" id="description" name="description"><br><br>
+
+        <label for="sentdate">Ημερομηνία αποστολής ακτονολογικής εντολής:</label>
+        <input type="date" id="sentdate" name="sentdate"><br><br>
+
+        <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
+        <input type="date" id="recdate" name="recdate"><br><br>
+
+        <button type="submit" class="btn btn-primary">Αποστολή</button>
+    </form>
+</body>
+</html>
