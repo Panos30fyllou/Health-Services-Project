@@ -49,7 +49,7 @@ using Health_Services_Project;
             WriteLiteral("\r\n<h1>ΠΕΡΙΦΕΡΕΙΑΚΟ ΓΕΝΙΚΟ ΝΟΣΟΚΟΜΕΙΟ</h1>\r\n<br>\r\n<br>\r\n<h2>Ακτινολογικό τμήμα </h2>\r\n<br>\r\n<br>\r\n<h2>");
             EndContext();
             BeginContext(177, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce46a8f2598b425591c31c15a4b67f5f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09f345c00bbd47278db2c8c45b9fcad8", async() => {
                 BeginContext(212, 18, true);
                 WriteLiteral("Καρδιολογικό τμήμα");
                 EndContext();
@@ -71,7 +71,7 @@ using Health_Services_Project;
             WriteLiteral(" </h2>\r\n<br>\r\n<br>\r\n<h2>");
             EndContext();
             BeginContext(258, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e23f8cf3629d44e8a693f0c67dcb45d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f782074eb98494ea4c84f1bac0b30b0", async() => {
                 BeginContext(293, 18, true);
                 WriteLiteral("Οδοντιατρικό τμήμα");
                 EndContext();
@@ -93,7 +93,7 @@ using Health_Services_Project;
             WriteLiteral("</h2>\r\n<br>\r\n<br>\r\n<h2>");
             EndContext();
             BeginContext(338, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bd80c7a78864ee99a9fc86d228575f1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e6636a84bfb413ebc5cbb50fdb5a0d4", async() => {
                 BeginContext(373, 17, true);
                 WriteLiteral("Παιδιατρικό τμήμα");
                 EndContext();

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Health Services Project", "Health Services Project\Health Services Project.csproj", "{789C3169-0830-451D-86B9-74E05236CCF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthServicesProject.Core", "HealthServicesProject.Core\HealthServicesProject.Core.csproj", "{759BEA6C-31F5-4628-8380-D60E8DC23320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthServicesProject.Core", "HealthServicesProject.Core\HealthServicesProject.Core.csproj", "{759BEA6C-31F5-4628-8380-D60E8DC23320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

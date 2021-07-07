@@ -124,3 +124,5 @@ D:\Health-Services-Project\Health Services Project\Health Services Project\obj\D
 D:\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.pdb
 D:\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.genruntimeconfig.cache
 D:\Health-Services-Project\Health Services Project\Health Services Project\obj\Debug\netcoreapp2.1\Health Services Project.csproj.CopyComplete
+D:\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\HealthServicesProject.Core.dll
+D:\Health-Services-Project\Health Services Project\Health Services Project\bin\Debug\netcoreapp2.1\HealthServicesProject.Core.pdb
