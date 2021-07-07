@@ -1,9 +1,0 @@
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\bin\Debug\netcoreapp2.1\HealthServicesProject.Core.deps.json
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\bin\Debug\netcoreapp2.1\HealthServicesProject.Core.dll
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\bin\Debug\netcoreapp2.1\HealthServicesProject.Core.pdb
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.csproj.AssemblyReference.cache
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.AssemblyInfoInputs.cache
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.AssemblyInfo.cs
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.csproj.CoreCompileInputs.cache
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.dll
-D:\Health-Services-Project\Health Services Project\HealthServicesProject.Core\obj\Debug\netcoreapp2.1\HealthServicesProject.Core.pdb
