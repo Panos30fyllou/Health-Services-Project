@@ -26,7 +26,7 @@ namespace HealthServices.ServiceModel.DataObject
 
             //Update
             Appointment ino = db.Single<Appointment>(x => x.Id == 2);
-            ino.Patient = new Patient();
+            //ino.Patient = new Patient();
             db.Update(ino);
 
             db.Close();
