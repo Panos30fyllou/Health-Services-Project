@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-07-07 23:28:42
+Date: 2021-07-08 13:59:02
 Version: 5.111
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -25,7 +25,48 @@ BaseUrl: https://localhost:5001
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    exports.Hello = exports.HelloResponse = void 0;
+    exports.XRayRequest = exports.Hello = exports.XRayResponse = exports.HelloResponse = exports.Appointment = exports.Doctor = exports.Patient = exports.Gender = exports.XRayType = exports.Priority = void 0;
+    var Priority;
+    (function (Priority) {
+        Priority[Priority["Low"] = 1] = "Low";
+        Priority[Priority["Normal"] = 2] = "Normal";
+        Priority[Priority["High"] = 3] = "High";
+        Priority[Priority["Urgent"] = 4] = "Urgent";
+    })(Priority = exports.Priority || (exports.Priority = {}));
+    var XRayType;
+    (function (XRayType) {
+        XRayType[XRayType["UpperBody"] = 1] = "UpperBody";
+        XRayType[XRayType["LowerBody"] = 2] = "LowerBody";
+        XRayType[XRayType["Cardio"] = 3] = "Cardio";
+        XRayType[XRayType["Oral"] = 4] = "Oral";
+        XRayType[XRayType["Lungs"] = 5] = "Lungs";
+    })(XRayType = exports.XRayType || (exports.XRayType = {}));
+    var Gender;
+    (function (Gender) {
+        Gender[Gender["Man"] = 1] = "Man";
+        Gender[Gender["Woman"] = 2] = "Woman";
+    })(Gender = exports.Gender || (exports.Gender = {}));
+    var Patient = /** @class */ (function () {
+        function Patient(init) {
+            Object.assign(this, init);
+        }
+        return Patient;
+    }());
+    exports.Patient = Patient;
+    var Doctor = /** @class */ (function () {
+        function Doctor(init) {
+            Object.assign(this, init);
+        }
+        return Doctor;
+    }());
+    exports.Doctor = Doctor;
+    var Appointment = /** @class */ (function () {
+        function Appointment(init) {
+            Object.assign(this, init);
+        }
+        return Appointment;
+    }());
+    exports.Appointment = Appointment;
     var HelloResponse = /** @class */ (function () {
         function HelloResponse(init) {
             Object.assign(this, init);
@@ -33,6 +74,13 @@ BaseUrl: https://localhost:5001
         return HelloResponse;
     }());
     exports.HelloResponse = HelloResponse;
+    var XRayResponse = /** @class */ (function () {
+        function XRayResponse(init) {
+            Object.assign(this, init);
+        }
+        return XRayResponse;
+    }());
+    exports.XRayResponse = XRayResponse;
     // @Route("/hello")
     // @Route("/hello/{Name}")
     var Hello = /** @class */ (function () {
@@ -44,4 +92,13 @@ BaseUrl: https://localhost:5001
         return Hello;
     }());
     exports.Hello = Hello;
+    var XRayRequest = /** @class */ (function () {
+        function XRayRequest(init) {
+            Object.assign(this, init);
+        }
+        XRayRequest.prototype.createResponse = function () { return new XRayResponse(); };
+        XRayRequest.prototype.getTypeName = function () { return 'XRayRequest'; };
+        return XRayRequest;
+    }());
+    exports.XRayRequest = XRayRequest;
 });

@@ -5,14 +5,50 @@
     <title></title>
 </head>
 <body>
+    <script>
+        
+        var exports = { __esModule: true }, module = { exports: exports }
+        function require(name) { return exports[name] || window[name] }
+    </script>
     <script src="/js/servicestack-client.js"></script>
     <script src="/dtos.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
     <script>
+        Object.assign(window, exports)
+        
         function SendXRay() {
-            let client = new JsonServiceClient("https://localhost:5001/");
+            const axios = require('axios');
+            axios.get("https://localhost:5001/", {
+                params: {
+                    Hello: new Hello({ Name: 'World' })
+                }
+            })
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
 
-            client.get(new Hello({ Name: 'World' }))
-                .then(r => document.getElementById("description").nodeValue = r.Result.toString());
+            let client = new JsonServiceClient("https://localhost:5001/");
+            let s;
+            let request = new Hello({ Name: 'World' });
+            var response = client.get(new Hello({ Name: 'World' }))
+                .then(r => {
+                    console.log(r.Result);
+                    s = r.Result;
+                    document.getElementById("description").nodeValue = r.Result.toString();
+                }).catch(
+                    function (error) {
+                        console.log(error);
+                    });
+
         }
     </script>
     <h1>Αποστολή Ακτινολογικής Εντολής</h1>

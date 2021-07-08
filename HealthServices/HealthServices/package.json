@@ -3,6 +3,7 @@
         "dtos": "x ts && tsc -m umd dtos.ts && x -e \"mv('dtos.js','wwwroot/dtos.js')\""
     },
     "dependencies": {
-        "@servicestack/client": "^1.0.55"
+        "@servicestack/client": "^1.0.55",
+        "axios": "^0.21.1"
     }
 }
