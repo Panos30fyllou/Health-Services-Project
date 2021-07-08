@@ -12,11 +12,11 @@ namespace HealthServices.ServiceModel.DataObject
         public int Id { get; set; }
         public DateTime DateofAppointment { get; set; }
         public DateTime SetDate { get; set; }
-        public Patient Patient { get; set; }
+        public int PatientId { get; set; }
         public Priority Priority { get; set; }
         public string Reason { get; set; }
-        public XRayType XRayType { get; set; } 
-        public Doctor Doctor { get; set; }
+        public XRayType XRayType { get; set; }
+        public int DoctorId { get; set; }
 
     }
 }
