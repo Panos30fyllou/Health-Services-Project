@@ -1,8 +1,6 @@
 ﻿using HealthServices.ServiceModel.DataObject;
 using ServiceStack;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HealthServices.ServiceModel
 {
@@ -11,7 +9,7 @@ namespace HealthServices.ServiceModel
         public Priority Priority { get; set; }
         public string Description { get; set; }
         public DateTime SetDate { get; set; }
-        public DateTime RecomendedDate { get; set; }
+        public DateTime RecommendedDate { get; set; }
         public XRayType XRayType { get; set; }
     }
 
