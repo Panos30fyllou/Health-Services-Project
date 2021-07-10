@@ -1,7 +1,10 @@
 ﻿using HealthServices.ServiceModel;
 using HealthServices.ServiceModel.DataObject;
 using ServiceStack;
+using ServiceStack.OrmLite;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace HealthServices.ServiceInterface
 {
@@ -9,8 +12,9 @@ namespace HealthServices.ServiceInterface
     {
         public XRayResponse Post(XRayRequest request)
         {
-            //DatabaseController.Initialize();
-            return new XRayResponse() { Success = true };
+            string connectionString = "Server=DESKTOP-5M7O03L;Database=HealthServices;Trusted_Connection=True;";
+            DatabaseController.Initialize(connectionString);
+            var db = DatabaseController.dbFactory.OpenDbConnection();
 
             List<Doctor> doctors = db.Select<Doctor>();
             int min = int.MaxValue;
@@ -29,20 +33,21 @@ namespace HealthServices.ServiceInterface
                     conflict = true;
                 if (conflict)
                 {
-                    Conflict(appointment, request, selectedDoctor);
+                    Conflict(db, appointment, request, selectedDoctor);
                     break;
                 }
             }
-
+            return new XRayResponse() { Success = true };
         }
-        public void Conflict(Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
+
+        public void Conflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
             if (request.Priority > appointment.Priority)
-                MoveAppointments(appointment, request, selectedDoctor);
+                MoveAppointments(db, appointment, request, selectedDoctor);
             else
-                AddToNextAvailable(request, selectedDoctor);
+                AddToNextAvailable(db, request, selectedDoctor);
         }       
 
-        public void MoveAppointments(Appointment appointment, XRayRequest request, Doctor selectedDoctor)
+        public void MoveAppointments(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor)
         {
             db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
             bool conflict;
@@ -61,7 +66,7 @@ namespace HealthServices.ServiceInterface
             db.Update(appointment);
         }
 
-        public void AddToNextAvailable(XRayRequest request, Doctor selectedDoctor)
+        public void AddToNextAvailable(IDbConnection db, XRayRequest request, Doctor selectedDoctor)
         {
             bool conflict;
             do
@@ -78,8 +83,7 @@ namespace HealthServices.ServiceInterface
 
             db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
         }
-
-        public Appointment CreateAppointmentFromRequest(XRayRequest request, Doctor doctor) {
+        public Appointment CreateAppointmentFromRequest(XRayRequest request, Doctor selectedDoctor) {
             Appointment appointmentRequested = new Appointment();
             appointmentRequested.Priority = request.Priority;
             appointmentRequested.Reason = request.Description;
@@ -90,5 +94,7 @@ namespace HealthServices.ServiceInterface
 
             return appointmentRequested;
         }
+
+
     }
 }
