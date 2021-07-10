@@ -37,6 +37,7 @@ namespace HealthServices.ServiceInterface
                     break;
                 }
             }
+
             return new XRayResponse() { Success = true };
         }
 
@@ -94,7 +95,5 @@ namespace HealthServices.ServiceInterface
 
             return appointmentRequested;
         }
-
-
     }
 }
