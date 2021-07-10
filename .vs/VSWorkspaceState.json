@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\HealthServices"
+    "\\HealthServices",
+    "\\HealthServices\\HealthServices.ServiceInterface",
+    "\\HealthServices\\HealthServices.ServiceModel"
   ],
   "SelectedNode": "\\HealthServices\\HealthServices.sln",
   "PreviewInSolutionExplorer": false
