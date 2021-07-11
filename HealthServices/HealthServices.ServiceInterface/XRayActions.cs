@@ -15,7 +15,9 @@ namespace HealthServices.ServiceInterface
             DatabaseController.Initialize(connectionString);
             var db = DatabaseController.dbFactory.OpenDbConnection();
 
+            //Gets a list of all doctors
             List<Doctor> doctors = db.Select<Doctor>();
+            //Finds the minimum number of appointments a doctor has
             int min = int.MaxValue;
             foreach (Doctor doctor in doctors)
             {
@@ -23,6 +25,7 @@ namespace HealthServices.ServiceInterface
                     min = doctor.Appointments;
             }
 
+            //Se
             Doctor selectedDoctor = db.Single<Doctor>(x => x.Appointments == min);
             List<Appointment> appointments = db.Select<Appointment>();
             bool conflict = false;
