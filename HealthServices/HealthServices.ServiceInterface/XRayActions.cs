@@ -25,9 +25,13 @@ namespace HealthServices.ServiceInterface
                     min = doctor.Appointments;
             }
 
-            //Se
+            //Selects the doctor with the less appointments
             Doctor selectedDoctor = db.Single<Doctor>(x => x.Appointments == min);
+
+            //Gets a list of all the appointments
             List<Appointment> appointments = db.Select<Appointment>();
+
+            //Finds if there is an appointment in the db that conflicts with the request
             bool conflict = false;
             Appointment appointmentInConflict = new Appointment();
             foreach (Appointment appointment in appointments)
@@ -40,9 +44,10 @@ namespace HealthServices.ServiceInterface
                 }
             }
 
+            //If there is a conflict, it resolves it first, and then creates an appointment to return
             Appointment appointmentForDb;
             if (conflict)
-                appointmentForDb = Conflict(db, appointmentInConflict, request, selectedDoctor);
+                appointmentForDb = ResolveConflict(db, appointmentInConflict, request, selectedDoctor);
             else
                 appointmentForDb = CreateAppointmentFromRequest(request, selectedDoctor);
 
@@ -53,7 +58,7 @@ namespace HealthServices.ServiceInterface
             };
         }
 
-        public Appointment Conflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
+        public Appointment ResolveConflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
             Appointment appointmentForDb;
             if (request.Priority > appointment.Priority)
                 appointmentForDb = MoveAppointments(db, appointment, request, selectedDoctor);
@@ -67,13 +72,15 @@ namespace HealthServices.ServiceInterface
 
         public Appointment MoveAppointments(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor)
         {
-            db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
+            Appointment appointmentAdded = CreateAppointmentFromRequest(request, selectedDoctor);
+            db.Insert<Appointment>(appointmentAdded);
+
+            List<Appointment> appointments = db.Select<Appointment>(x => x.DoctorId == selectedDoctor.Id);
             bool conflict;
             do
             {
                 conflict = false;
                 appointment.DateofAppointment.AddHours(1);
-                List<Appointment> appointments = db.Select<Appointment>(x => x.DoctorId == selectedDoctor.Id);
                 foreach (Appointment a in appointments)
                 {
                     if (a.DateofAppointment.Equals(appointment.DateofAppointment))
@@ -81,7 +88,8 @@ namespace HealthServices.ServiceInterface
                 }
             } while (conflict);
 
-            return appointment;
+            db.Update(appointment);
+            return appointmentAdded;
         }
 
         public void AddToNextAvailable(IDbConnection db, XRayRequest request, Doctor selectedDoctor)
