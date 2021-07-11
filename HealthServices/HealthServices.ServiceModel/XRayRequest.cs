@@ -16,6 +16,6 @@ namespace HealthServices.ServiceModel
     public class XRayResponse
     {
         public bool Success { get; set; }
-        public Appointment Appointment { get; set; }
+        public Appointment XRayAppointment { get; set; }
     }
 }

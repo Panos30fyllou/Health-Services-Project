@@ -4,7 +4,6 @@ using ServiceStack;
 using ServiceStack.OrmLite;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace HealthServices.ServiceInterface
 {
@@ -27,28 +26,43 @@ namespace HealthServices.ServiceInterface
             Doctor selectedDoctor = db.Single<Doctor>(x => x.Appointments == min);
             List<Appointment> appointments = db.Select<Appointment>();
             bool conflict = false;
+            Appointment appointmentInConflict = new Appointment();
             foreach (Appointment appointment in appointments)
             {
                 if (appointment.DateofAppointment.Equals(request.RecommendedDate))
-                    conflict = true;
-                if (conflict)
                 {
-                    Conflict(db, appointment, request, selectedDoctor);
+                    conflict = true;
+                    appointmentInConflict = appointment;
                     break;
                 }
             }
 
-            return new XRayResponse() { Success = true };
+            Appointment appointmentForDb;
+            if (conflict)
+                appointmentForDb = Conflict(db, appointmentInConflict, request, selectedDoctor);
+            else
+                appointmentForDb = CreateAppointmentFromRequest(request, selectedDoctor);
+
+            return new XRayResponse()
+            {
+                Success = true,
+                XRayAppointment = appointmentForDb
+            };
         }
 
-        public void Conflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
+        public Appointment Conflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
+            Appointment appointmentForDb;
             if (request.Priority > appointment.Priority)
-                MoveAppointments(db, appointment, request, selectedDoctor);
+                appointmentForDb = MoveAppointments(db, appointment, request, selectedDoctor);
             else
+            {
                 AddToNextAvailable(db, request, selectedDoctor);
+                appointmentForDb = CreateAppointmentFromRequest(request, selectedDoctor);
+            }
+            return appointmentForDb;
         }       
 
-        public void MoveAppointments(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor)
+        public Appointment MoveAppointments(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor)
         {
             db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
             bool conflict;
@@ -64,7 +78,7 @@ namespace HealthServices.ServiceInterface
                 }
             } while (conflict);
 
-            db.Update(appointment);
+            return appointment;
         }
 
         public void AddToNextAvailable(IDbConnection db, XRayRequest request, Doctor selectedDoctor)
@@ -84,6 +98,7 @@ namespace HealthServices.ServiceInterface
 
             db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
         }
+
         public Appointment CreateAppointmentFromRequest(XRayRequest request, Doctor selectedDoctor) {
             Appointment appointmentRequested = new Appointment();
             appointmentRequested.Priority = request.Priority;
