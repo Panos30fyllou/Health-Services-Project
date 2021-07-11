@@ -10,6 +10,6 @@ namespace HealthServices.ServiceModel.DataObject
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Department { get; set; }
-        public int Appointments { get; set; }
+        public int NumberOfAppointments { get; set; }
     }
 }

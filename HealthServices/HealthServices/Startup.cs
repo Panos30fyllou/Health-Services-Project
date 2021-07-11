@@ -7,6 +7,9 @@ using Funq;
 using ServiceStack;
 using ServiceStack.Configuration;
 using HealthServices.ServiceInterface;
+using HealthServices.ServiceModel;
+using System;
+using HealthServices.ServiceModel.DataObject;
 
 namespace HealthServices
 {
@@ -16,7 +19,6 @@ namespace HealthServices
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public new void ConfigureServices(IServiceCollection services)
         {
-            Program.Main();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,11 +43,17 @@ namespace HealthServices
         // Configure your AppHost with the necessary configuration and dependencies your App needs
         public override void Configure(Container container)
         {
-            
+
             SetConfig(new HostConfig
             {
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
+
+            XRayActions xRayActions = new XRayActions();
+            XRayRequest xRayRequest = new XRayRequest() { Description = "perigrafiii", Priority = Priority.High, RecommendedDate = DateTime.Now.AddDays(2), DateSent = DateTime.Now, XRayType = XRayType.LowerBody };
+            XRayResponse xRayResponse = xRayActions.Post(xRayRequest);
+            Console.WriteLine(xRayResponse.Success);
+
         }
     }
 }

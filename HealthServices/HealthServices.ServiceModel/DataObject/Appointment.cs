@@ -9,7 +9,7 @@ namespace HealthServices.ServiceModel.DataObject
         [AutoIncrement]
         public int Id { get; set; }
         public DateTime DateofAppointment { get; set; }
-        public DateTime SetDate { get; set; }
+        public DateTime DateSent { get; set; }
         public int PatientId { get; set; }
         public Priority Priority { get; set; }
         public string Reason { get; set; }

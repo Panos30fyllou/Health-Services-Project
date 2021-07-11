@@ -14,10 +14,6 @@ namespace HealthServices
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            XRayActions xRayActions = new XRayActions();
-            XRayRequest xRayRequest = new XRayRequest() { Description = "perigrafiii", Priority = Priority.High, RecommendedDate = DateTime.Now.AddDays(2), DateSent = DateTime.Now, XRayType = XRayType.LowerBody };
-            XRayResponse xRayResponse = xRayActions.Post(xRayRequest);
-            Console.WriteLine(xRayResponse.Success);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
