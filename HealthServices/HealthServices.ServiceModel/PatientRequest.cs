@@ -8,7 +8,7 @@ namespace HealthServices.ServiceModel
 {
     public class PatientRequest: IReturn<PatientResponse>
     {
-        public string NAme { get; set; }
+        public string Name { get; set; }
         public string SureName { get; set; }
         public string FathersName { get; set; }
         public string MothersName { get; set; }
@@ -21,9 +21,9 @@ namespace HealthServices.ServiceModel
         public string NumbersOfContact { get; set; }
     }
 
-public class PatientResponse
-{
-    public bool Success { get; set; }
-    public Patient Patient{ get; set; }
-}
+    public class PatientResponse
+    {
+        public bool Success { get; set; }
+        public Patient Patient{ get; set; }
+    }
 }
