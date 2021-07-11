@@ -8,7 +8,7 @@ namespace HealthServices.ServiceModel
     {
         public Priority Priority { get; set; }
         public string Description { get; set; }
-        public DateTime SetDate { get; set; }
+        public DateTime DateSent { get; set; }
         public DateTime RecommendedDate { get; set; }
         public XRayType XRayType { get; set; }
     }

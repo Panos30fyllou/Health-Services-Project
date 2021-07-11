@@ -45,16 +45,20 @@ namespace HealthServices.ServiceInterface
             }
 
             //If there is a conflict, it resolves it first, and then creates an appointment to return
-            Appointment appointmentForDb;
+            Appointment appointmentAdded;
             if (conflict)
-                appointmentForDb = ResolveConflict(db, appointmentInConflict, request, selectedDoctor);
+                appointmentAdded = ResolveConflict(db, appointmentInConflict, request, selectedDoctor);
             else
-                appointmentForDb = CreateAppointmentFromRequest(request, selectedDoctor);
+            {
+                Appointment appointment = CreateAppointmentFromRequest(request, selectedDoctor);
+                db.Insert<Appointment>(appointment);
+                appointmentAdded = appointment;
+            }
 
             return new XRayResponse()
             {
                 Success = true,
-                XRayAppointment = appointmentForDb
+                XRayAppointment = appointmentAdded
             };
         }
 
@@ -63,36 +67,33 @@ namespace HealthServices.ServiceInterface
             if (request.Priority > appointment.Priority)
                 appointmentForDb = MoveAppointments(db, appointment, request, selectedDoctor);
             else
-            {
-                AddToNextAvailable(db, request, selectedDoctor);
-                appointmentForDb = CreateAppointmentFromRequest(request, selectedDoctor);
-            }
+                appointmentForDb = AddToNextAvailable(db, request, selectedDoctor);
             return appointmentForDb;
         }       
 
-        public Appointment MoveAppointments(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor)
+        public Appointment MoveAppointments(IDbConnection db, Appointment appointmentToBeMoved, XRayRequest request, Doctor selectedDoctor)
         {
-            Appointment appointmentAdded = CreateAppointmentFromRequest(request, selectedDoctor);
-            db.Insert<Appointment>(appointmentAdded);
+            Appointment newAppointment = CreateAppointmentFromRequest(request, selectedDoctor);
+            db.Insert<Appointment>(newAppointment);
 
             List<Appointment> appointments = db.Select<Appointment>(x => x.DoctorId == selectedDoctor.Id);
             bool conflict;
             do
             {
                 conflict = false;
-                appointment.DateofAppointment.AddHours(1);
-                foreach (Appointment a in appointments)
+                appointmentToBeMoved.DateofAppointment.AddHours(1);
+                foreach (Appointment appointment in appointments)
                 {
-                    if (a.DateofAppointment.Equals(appointment.DateofAppointment))
+                    if (appointment.DateofAppointment.Equals(appointmentToBeMoved.DateofAppointment))
                         conflict = true;
                 }
             } while (conflict);
 
-            db.Update(appointment);
-            return appointmentAdded;
+            db.Update(appointmentToBeMoved);
+            return newAppointment;
         }
 
-        public void AddToNextAvailable(IDbConnection db, XRayRequest request, Doctor selectedDoctor)
+        public Appointment AddToNextAvailable(IDbConnection db, XRayRequest request, Doctor selectedDoctor)
         {
             bool conflict;
             do
@@ -107,7 +108,9 @@ namespace HealthServices.ServiceInterface
                 }
             } while (conflict);
 
-            db.Insert<Appointment>(CreateAppointmentFromRequest(request, selectedDoctor));
+            Appointment appointmentAdded = CreateAppointmentFromRequest(request, selectedDoctor);
+            db.Insert<Appointment>(appointmentAdded);
+            return appointmentAdded;
         }
 
         public Appointment CreateAppointmentFromRequest(XRayRequest request, Doctor selectedDoctor) {
@@ -115,7 +118,7 @@ namespace HealthServices.ServiceInterface
             appointmentRequested.Priority = request.Priority;
             appointmentRequested.Reason = request.Description;
             appointmentRequested.DateofAppointment = request.RecommendedDate;
-            appointmentRequested.SetDate = request.SetDate;
+            appointmentRequested.SetDate = request.DateSent;
             appointmentRequested.XRayType = request.XRayType;
             appointmentRequested.DoctorId = selectedDoctor.Id;
 
