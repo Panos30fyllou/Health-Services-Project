@@ -19,6 +19,7 @@ namespace HealthServices.ServiceModel
             Appointment appointment = db.Single<Appointment>(x => x.Id == appointmentId);
             appointment.PatientId = patient.Id;
             db.Update(appointment);
+            db.Close();
         }
     }
 }
