@@ -38,14 +38,17 @@ namespace HealthServices.ServiceInterface
 
             //Finds if there is an appointment in the db that conflicts with the request
             bool conflict = false;
-            Appointment appointmentInConflict = new Appointment();
+            Appointment appointmentInConflict = new Appointment() { Priority = Priority.Low };
             foreach (Appointment appointment in appointments)
             {
-                if (appointment.DateofAppointment.Hour.Equals(request.RecommendedDate.Hour))
+                if (DatesAreEqual(appointment.DateofAppointment, request.RecommendedDate))
                 {
                     conflict = true;
-                    appointmentInConflict = appointment;
-                    break;
+                    if (appointment.Priority <= appointmentInConflict.Priority)
+                    {
+                        request.RecommendedDate = request.RecommendedDate.AddHours(1);
+                        appointmentInConflict = appointment;
+                    }
                 }
             }
 
@@ -59,6 +62,8 @@ namespace HealthServices.ServiceInterface
                 db.Insert<Appointment>(appointment);
                 appointmentAdded = appointment;
             }
+
+            db.Close();
 
             return new XRayResponse()
             {
@@ -86,7 +91,7 @@ namespace HealthServices.ServiceInterface
             do
             {
                 conflict = false;
-                appointmentToBeMoved.DateofAppointment.AddHours(1);
+                appointmentToBeMoved.DateofAppointment = appointmentToBeMoved.DateofAppointment.AddHours(1);
                 foreach (Appointment appointment in appointments)
                 {
                     if (DatesAreEqual(appointment.DateofAppointment, appointmentToBeMoved.DateofAppointment))
@@ -105,7 +110,7 @@ namespace HealthServices.ServiceInterface
             do
             {
                 conflict = false;
-                request.RecommendedDate.AddHours(1);
+                request.RecommendedDate = request.RecommendedDate.AddHours(1);
                 foreach (Appointment appointment in appointments)
                 {
                     if (DatesAreEqual(appointment.DateofAppointment, request.RecommendedDate))
