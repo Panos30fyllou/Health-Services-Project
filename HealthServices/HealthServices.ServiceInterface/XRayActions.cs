@@ -142,5 +142,19 @@ namespace HealthServices.ServiceInterface
         {
             return dt1.Date.Equals(dt2.Date) && dt1.Hour.Equals(dt2.Hour);
         }
+        public DeleteAppointmentResponse Delete(DeleteAppointmentRequest request)
+        {
+            var db = DatabaseController.dbFactory.OpenDbConnection();
+            int deletedvalue = db.Delete<Appointment>(x => x.PatientId == 0);
+            if(deletedvalue > 0)
+            {
+                return new DeleteAppointmentResponse() { Success = true };
+            }
+            else
+            {
+                return new DeleteAppointmentResponse() { Success = false };
+            }
+            
+        }
     }
 }

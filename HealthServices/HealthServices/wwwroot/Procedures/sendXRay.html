@@ -16,10 +16,53 @@
         var client = new JsonServiceClient();
 
         function Respond(val) {
-            client.post(new Hello({ name: val }))
-                .then(function (r) {
-                    console.log(r.result);
-                });
+            if (document.getElementById('importance').value == null || document.getElementById('description').value == null || document.getElementById('sentdate').value == null || document.getElementById('recdate').value == null) {
+                alert("Please fill all the informations that are requested below!")
+            }
+            else {
+                var request = new XRayRequest();
+                if (document.getElementById('importance').value == "high") {
+                    request.Priority = Priority.High;
+                } else if (document.getElementById('importance').value == "normal") {
+                    request.Priority = Priority.Normal;
+                } else if(document.getElementById('importance').value == "low"){
+                    request.Priority = Priority.Low;
+                }else {
+                    request.Priority = Priority.Urgent;
+                }
+                request.Description = document.getElementById('description').value;
+                request.DateSent = document.getElementById('sentdate').value;
+                request.RecomendedDate = document.getElementById('recdate').value;
+                if (document.getElementById('xraytype').value == "UpperBody") {
+                    request.XRayType = XRayType.UpperBody;
+                }
+                else if (document.getElementById('xraytype').value == "LowerBody") {
+                    request.XRayType = XRayType.LowerBody;
+                }
+                else if (document.getElementById('xraytype').value == "Cardio") {
+                    request.XRayType = XRayType.Cardio;
+                }
+                else if (document.getElementById('xraytype').value == "Oral") {
+                    request.XRayType = XRayType.Oral;
+                }
+                else {
+                    request.XRayType = XRayType.Lungs;
+                }
+                var response = client.post(request);
+                if (response.Success) {
+                    var confirmed = confirm('Your Appointment is at ' + r.XRayAppointment.DateOfAppointment)
+                    if (confirmed == true) {
+                        window.location.href = "arrangementXRay.html";
+                    } else {
+                        var response1 = client.delete(new DeleteAppointmentRequest());
+                        if (response1.Success) {
+                            alert("Your Appointment is cancelled");
+                        }
+                        window.location.href = "index.html";
+                    }
+                }
+            }
+            
         }
     </script>
 
@@ -31,6 +74,7 @@
             <option value="high">High</option>
             <option value="normal">Normal</option>
             <option value="low">Low</option>
+            <option value="urgent">Urgent</option>
         </select><br><br>
 
         <label for="description">Αιτιολογία:</label>
@@ -42,7 +86,16 @@
         <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
         <input type="date" id="recdate" name="recdate"><br><br>
 
-        <button type="submit" method ="post" class="btn btn-primary" OnClick="Respond('World')">Αποστολή</button>
+        <label for="type">Τύπος Εξετάσεων:</label>
+        <select name="type" id="xraytype">
+            <option value="UpperBody">UpperBody</option>
+            <option value="LowerBody">LowerBody</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Oral">Oral</option>
+            <option value="Lungs">Lungs</option>
+        </select><br><br>
+
+        <button type="submit" method="post" class="btn btn-primary" OnClick="Respond('World')">Αποστολή</button>
     </form>
 </body>
 </html>

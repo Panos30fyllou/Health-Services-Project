@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HealthServices.ServiceInterface\HealthServices.ServiceInterface.csproj" />
     <ProjectReference Include="..\HealthServices.ServiceModel\HealthServices.ServiceModel.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
 
     <PackageReference Include="NUnit" Version="3.12.*" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.*" />

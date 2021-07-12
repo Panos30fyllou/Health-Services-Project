@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-07-12 18:14:39
+Date: 2021-07-12 23:36:23
 Version: 5.111
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -72,6 +72,13 @@ export class XRayResponse
     public constructor(init?: Partial<XRayResponse>) { (Object as any).assign(this, init); }
 }
 
+export class DeleteAppointmentResponse
+{
+    public success: boolean;
+
+    public constructor(init?: Partial<DeleteAppointmentResponse>) { (Object as any).assign(this, init); }
+}
+
 // @Route("/hello")
 // @Route("/hello/{Name}")
 export class Hello implements IReturn<HelloResponse>
@@ -95,5 +102,14 @@ export class XRayRequest implements IReturn<XRayResponse>
     public constructor(init?: Partial<XRayRequest>) { (Object as any).assign(this, init); }
     public createResponse() { return new XRayResponse(); }
     public getTypeName() { return 'XRayRequest'; }
+}
+
+// @Route("/DeleteXRay")
+export class DeleteAppointmentRequest implements IReturn<DeleteAppointmentResponse>
+{
+
+    public constructor(init?: Partial<DeleteAppointmentRequest>) { (Object as any).assign(this, init); }
+    public createResponse() { return new DeleteAppointmentResponse(); }
+    public getTypeName() { return 'DeleteAppointmentRequest'; }
 }
 

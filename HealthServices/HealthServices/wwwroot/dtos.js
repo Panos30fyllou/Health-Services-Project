@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-07-12 18:14:26
+Date: 2021-07-12 23:36:23
 Version: 5.111
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -25,7 +25,7 @@ BaseUrl: https://localhost:5001
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    exports.XRayRequest = exports.Hello = exports.XRayResponse = exports.HelloResponse = exports.Appointment = exports.XRayType = exports.Priority = void 0;
+    exports.DeleteAppointmentRequest = exports.XRayRequest = exports.Hello = exports.DeleteAppointmentResponse = exports.XRayResponse = exports.HelloResponse = exports.Appointment = exports.XRayType = exports.Priority = void 0;
     var Priority;
     (function (Priority) {
         Priority[Priority["Low"] = 1] = "Low";
@@ -62,6 +62,13 @@ BaseUrl: https://localhost:5001
         return XRayResponse;
     }());
     exports.XRayResponse = XRayResponse;
+    var DeleteAppointmentResponse = /** @class */ (function () {
+        function DeleteAppointmentResponse(init) {
+            Object.assign(this, init);
+        }
+        return DeleteAppointmentResponse;
+    }());
+    exports.DeleteAppointmentResponse = DeleteAppointmentResponse;
     // @Route("/hello")
     // @Route("/hello/{Name}")
     var Hello = /** @class */ (function () {
@@ -83,4 +90,14 @@ BaseUrl: https://localhost:5001
         return XRayRequest;
     }());
     exports.XRayRequest = XRayRequest;
+    // @Route("/DeleteXRay")
+    var DeleteAppointmentRequest = /** @class */ (function () {
+        function DeleteAppointmentRequest(init) {
+            Object.assign(this, init);
+        }
+        DeleteAppointmentRequest.prototype.createResponse = function () { return new DeleteAppointmentResponse(); };
+        DeleteAppointmentRequest.prototype.getTypeName = function () { return 'DeleteAppointmentRequest'; };
+        return DeleteAppointmentRequest;
+    }());
+    exports.DeleteAppointmentRequest = DeleteAppointmentRequest;
 });

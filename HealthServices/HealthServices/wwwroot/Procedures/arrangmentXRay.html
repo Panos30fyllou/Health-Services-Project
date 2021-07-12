@@ -6,42 +6,64 @@
 </head>
 
 <body>
+    <script>
+        var exports = { __esModule: true }, module = { exports: exports }
+        function require(name) { return exports[name] || window[name] }
+    </script>
+    <script src="/js/servicestack-client.js"></script>
+    <script src="/dtos.js"></script>
+    <script>
+        Object.assign(window, exports); //import
+        var client = new JsonServiceClient();
+
+        function SendXRay() {
+            if (document.getElementById('name').value == null || document.getElementById('surname').value == null || document.getElementById('fathersname').value == null || document.getElementById('mothersname').value == null || document.getElementById('amka').value == null || document.getElementById('bdate').value == null || document.getElementById('street').value == null || document.getElementById('postcode').value == null || document.getElementById('sex').value == null || document.getElementById('description').value == null || document.getElementById('phonenum').value == null) {
+                alert("Please fill all the informations that are requested below!");
+            }
+            else {
+
+            }
+        }
+    </script>
     <form id="form1" class="container border">
         <h1>Ραντεβού</h1>
         <label for="Name">Όνομα:</label>
-        <input type="text" id="form1" name="name"><br><br>
+        <input type="text" id="name" name="name"><br><br>
 
         <label for="surename">Επίθετο:</label>
-        <input type="text" id="form" name="surename"><br><br>
+        <input type="text" id="surname" name="surename"><br><br>
 
         <label for="fathersname">Όνομα πατρός:</label>
-        <input type="text" id="form1" name="fathersname"><br><br>
+        <input type="text" id="fathersname" name="fathersname"><br><br>
 
         <label for="mothersname">όνομα Μητρός:</label>
-        <input type="text" id="form" name="mothersname"><br><br>
+        <input type="text" id="mothersname" name="mothersname"><br><br>
 
         <label for="amka">ΑΜΚΑ:</label>
-        <input type="text" id="form1" name="amka"><br><br>
+        <input type="text" id="amka" name="amka"><br><br>
 
         <label for="bdate">Ημερομηνία Γέννησης:</label>
         <input type="date" id="bdate" name="bdate"><br><br>
 
         <label for="street">Διεύθυνση:</label>
-        <input type="text" id="form1" name="street"><br><br>
+        <input type="text" id="street" name="street"><br><br>
 
         <label for="postcode">Ταχυδρομικός Κώδικας:</label>
-        <input type="text" id="form1" name="description"><br><br>
+        <input type="text" id="postcode" name="description"><br><br>
 
         <label for="sex">Φύλλο</label>
-        <select name="sex" id="form1">
+        <select name="sex" id="sex">
             <option value="woman">Γυναίκα</option>
             <option value="man">Άντρας</option>
         </select><br><br>
 
-        <label for="phonenum">Αιτιολογία:</label>
-        <input type="text" id="form1" name="phonenum"><br><br>
+        <label for="description">Αιτιολογία:</label>
+        <input type="text" id="description" name="description"><br><br>
+
+        <label for="phonenum">Τηλέφωνο Επικοινωνίας:</label>
+        <input type="text" id="phonenum" name="phonenum"><br><br>
 
         <button type="submit" class="btn btn-primary" OnClick="SendXRay()">Αποστολή</button>
     </form>
-</body> 
+</body>
 </html>
