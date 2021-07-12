@@ -17,6 +17,7 @@ namespace HealthServices
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
         public new void ConfigureServices(IServiceCollection services)
         {
         }
@@ -48,7 +49,9 @@ namespace HealthServices
             {
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
-
+            DatabaseController.Initialize(AppSettings.Get<String>("ConnectionStrings:conn_string"));
+            
+            //string myDb1ConnectionString = Startup._configuration.GetConnectionString("myDb1");
             //XRayActions xRayActions = new XRayActions();
             //XRayRequest xRayRequest = new XRayRequest() { Description = "perigrafiii", Priority = Priority.High, RecommendedDate = DateTime.Now.AddDays(2), DateSent = DateTime.Now, XRayType = XRayType.LowerBody };
             //XRayResponse xRayResponse = xRayActions.Post(xRayRequest);

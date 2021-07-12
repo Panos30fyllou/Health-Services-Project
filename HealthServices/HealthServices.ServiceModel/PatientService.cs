@@ -10,8 +10,6 @@ namespace HealthServices.ServiceModel
     {
         public void Post(Patient patient, int appointmentId)
         {
-            string connectionString = "Server=DESKTOP-5M7O03L;Database=HealthServices;Trusted_Connection=True;";
-            DatabaseController.Initialize(connectionString);
             var db = DatabaseController.dbFactory.OpenDbConnection();
 
             db.Insert<Patient>(patient);

@@ -13,8 +13,6 @@ namespace HealthServices.ServiceInterface
     {
         public XRayResponse Post(XRayRequest request)
         {
-            string connectionString = "Server=DESKTOP-5M7O03L;Database=HealthServices;Trusted_Connection=True;";
-            DatabaseController.Initialize(connectionString);
             var db = DatabaseController.dbFactory.OpenDbConnection();
 
             //db.CreateTable<Doctor>();

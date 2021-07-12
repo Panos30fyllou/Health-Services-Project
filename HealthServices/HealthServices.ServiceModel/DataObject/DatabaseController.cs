@@ -1,4 +1,5 @@
-﻿using ServiceStack.OrmLite;
+﻿using ServiceStack.Configuration;
+using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,10 +10,11 @@ namespace HealthServices.ServiceModel.DataObject
     public static class DatabaseController
     {
         public static OrmLiteConnectionFactory dbFactory;
-
-        public static bool Initialize(string connectionString)
+        
+        public static bool Initialize(string connectionstring)
         {
-            dbFactory = new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider);
+            AppSettings app = new AppSettings();
+            dbFactory = new OrmLiteConnectionFactory(connectionstring,SqlServerDialect.Provider);
 
             var db = dbFactory.OpenDbConnection();
 
