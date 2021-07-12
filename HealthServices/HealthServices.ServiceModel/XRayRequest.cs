@@ -4,6 +4,7 @@ using System;
 
 namespace HealthServices.ServiceModel
 {
+    [Route("/XrayRequest")]
     public class XRayRequest : IReturn<XRayResponse>
     {
         public Priority Priority { get; set; }

@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-07-08 13:59:02
+Date: 2021-07-12 18:14:26
 Version: 5.111
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -25,7 +25,7 @@ BaseUrl: https://localhost:5001
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    exports.XRayRequest = exports.Hello = exports.XRayResponse = exports.HelloResponse = exports.Appointment = exports.Doctor = exports.Patient = exports.Gender = exports.XRayType = exports.Priority = void 0;
+    exports.XRayRequest = exports.Hello = exports.XRayResponse = exports.HelloResponse = exports.Appointment = exports.XRayType = exports.Priority = void 0;
     var Priority;
     (function (Priority) {
         Priority[Priority["Low"] = 1] = "Low";
@@ -41,25 +41,6 @@ BaseUrl: https://localhost:5001
         XRayType[XRayType["Oral"] = 4] = "Oral";
         XRayType[XRayType["Lungs"] = 5] = "Lungs";
     })(XRayType = exports.XRayType || (exports.XRayType = {}));
-    var Gender;
-    (function (Gender) {
-        Gender[Gender["Man"] = 1] = "Man";
-        Gender[Gender["Woman"] = 2] = "Woman";
-    })(Gender = exports.Gender || (exports.Gender = {}));
-    var Patient = /** @class */ (function () {
-        function Patient(init) {
-            Object.assign(this, init);
-        }
-        return Patient;
-    }());
-    exports.Patient = Patient;
-    var Doctor = /** @class */ (function () {
-        function Doctor(init) {
-            Object.assign(this, init);
-        }
-        return Doctor;
-    }());
-    exports.Doctor = Doctor;
     var Appointment = /** @class */ (function () {
         function Appointment(init) {
             Object.assign(this, init);
@@ -92,6 +73,7 @@ BaseUrl: https://localhost:5001
         return Hello;
     }());
     exports.Hello = Hello;
+    // @Route("/XrayRequest")
     var XRayRequest = /** @class */ (function () {
         function XRayRequest(init) {
             Object.assign(this, init);

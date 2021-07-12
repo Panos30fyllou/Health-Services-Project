@@ -5,6 +5,128 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="package-lock.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="servicestack-client.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="node_modules\@servicestack\client\dist\index.d.ts" />
+    <None Include="node_modules\@servicestack\client\dist\index.js" />
+    <None Include="node_modules\@servicestack\client\dist\servicestack-client.min.js" />
+    <None Include="node_modules\@servicestack\client\dist\servicestack-client.umd.js" />
+    <None Include="node_modules\@servicestack\client\LICENSE.txt" />
+    <None Include="node_modules\@servicestack\client\package.json" />
+    <None Include="node_modules\@servicestack\client\README.md" />
+    <None Include="node_modules\cross-fetch\dist\browser-polyfill.js" />
+    <None Include="node_modules\cross-fetch\dist\browser-ponyfill.js" />
+    <None Include="node_modules\cross-fetch\dist\cross-fetch.js" />
+    <None Include="node_modules\cross-fetch\dist\cross-fetch.js.map" />
+    <None Include="node_modules\cross-fetch\dist\node-polyfill.js" />
+    <None Include="node_modules\cross-fetch\dist\node-ponyfill.js" />
+    <None Include="node_modules\cross-fetch\dist\react-native-polyfill.js" />
+    <None Include="node_modules\cross-fetch\dist\react-native-ponyfill.js" />
+    <None Include="node_modules\cross-fetch\index.d.ts" />
+    <None Include="node_modules\cross-fetch\LICENSE" />
+    <None Include="node_modules\cross-fetch\package.json" />
+    <None Include="node_modules\cross-fetch\polyfill\package.json" />
+    <None Include="node_modules\cross-fetch\README.md" />
+    <None Include="node_modules\es6-shim\.eslintignore" />
+    <None Include="node_modules\es6-shim\.eslintrc" />
+    <None Include="node_modules\es6-shim\bower.json" />
+    <None Include="node_modules\es6-shim\CHANGELOG.md" />
+    <None Include="node_modules\es6-shim\component.json" />
+    <None Include="node_modules\es6-shim\es6-sham.js" />
+    <None Include="node_modules\es6-shim\es6-sham.map" />
+    <None Include="node_modules\es6-shim\es6-sham.min.js" />
+    <None Include="node_modules\es6-shim\es6-shim.js" />
+    <None Include="node_modules\es6-shim\es6-shim.map" />
+    <None Include="node_modules\es6-shim\es6-shim.min.js" />
+    <None Include="node_modules\es6-shim\Gruntfile.js" />
+    <None Include="node_modules\es6-shim\LICENSE" />
+    <None Include="node_modules\es6-shim\package.json" />
+    <None Include="node_modules\es6-shim\README.md" />
+    <None Include="node_modules\es6-shim\test-sham\.eslintrc" />
+    <None Include="node_modules\es6-shim\test-sham\function.js" />
+    <None Include="node_modules\es6-shim\test-sham\index.html" />
+    <None Include="node_modules\es6-shim\test-sham\set-prototype-of.js" />
+    <None Include="node_modules\es6-shim\test\.eslintrc" />
+    <None Include="node_modules\es6-shim\test\array.js" />
+    <None Include="node_modules\es6-shim\test\browser-onload.js" />
+    <None Include="node_modules\es6-shim\test\browser-setup.js" />
+    <None Include="node_modules\es6-shim\test\date.js" />
+    <None Include="node_modules\es6-shim\test\google-translate.html" />
+    <None Include="node_modules\es6-shim\test\index.html" />
+    <None Include="node_modules\es6-shim\test\json.js" />
+    <None Include="node_modules\es6-shim\test\map.js" />
+    <None Include="node_modules\es6-shim\test\math.js" />
+    <None Include="node_modules\es6-shim\test\mocha.opts" />
+    <None Include="node_modules\es6-shim\test\native.html" />
+    <None Include="node_modules\es6-shim\test\number.js" />
+    <None Include="node_modules\es6-shim\test\object.js" />
+    <None Include="node_modules\es6-shim\test\promise.js" />
+    <None Include="node_modules\es6-shim\test\promise\all.js" />
+    <None Include="node_modules\es6-shim\test\promise\evil-promises.js" />
+    <None Include="node_modules\es6-shim\test\promise\promises-aplus.js" />
+    <None Include="node_modules\es6-shim\test\promise\promises-es6.js" />
+    <None Include="node_modules\es6-shim\test\promise\race.js" />
+    <None Include="node_modules\es6-shim\test\promise\reject.js" />
+    <None Include="node_modules\es6-shim\test\promise\resolve.js" />
+    <None Include="node_modules\es6-shim\test\promise\simple.js" />
+    <None Include="node_modules\es6-shim\test\promise\subclass.js" />
+    <None Include="node_modules\es6-shim\test\reflect.js" />
+    <None Include="node_modules\es6-shim\test\regexp.js" />
+    <None Include="node_modules\es6-shim\test\set.js" />
+    <None Include="node_modules\es6-shim\test\string.js" />
+    <None Include="node_modules\es6-shim\test\test_helpers.js" />
+    <None Include="node_modules\es6-shim\test\worker-runner.workerjs" />
+    <None Include="node_modules\es6-shim\test\worker-test.js" />
+    <None Include="node_modules\eventsource\.editorconfig" />
+    <None Include="node_modules\eventsource\.travis.yml" />
+    <None Include="node_modules\eventsource\CONTRIBUTING.md" />
+    <None Include="node_modules\eventsource\example\eventsource-polyfill.js" />
+    <None Include="node_modules\eventsource\example\index.html" />
+    <None Include="node_modules\eventsource\example\sse-client.js" />
+    <None Include="node_modules\eventsource\example\sse-server.js" />
+    <None Include="node_modules\eventsource\HISTORY.md" />
+    <None Include="node_modules\eventsource\lib\eventsource-polyfill.js" />
+    <None Include="node_modules\eventsource\lib\eventsource.js" />
+    <None Include="node_modules\eventsource\LICENSE" />
+    <None Include="node_modules\eventsource\package.json" />
+    <None Include="node_modules\eventsource\README.md" />
+    <None Include="node_modules\node-fetch\browser.js" />
+    <None Include="node_modules\node-fetch\CHANGELOG.md" />
+    <None Include="node_modules\node-fetch\lib\index.es.js" />
+    <None Include="node_modules\node-fetch\lib\index.js" />
+    <None Include="node_modules\node-fetch\lib\index.mjs" />
+    <None Include="node_modules\node-fetch\LICENSE.md" />
+    <None Include="node_modules\node-fetch\package.json" />
+    <None Include="node_modules\node-fetch\README.md" />
+    <None Include="node_modules\original\index.js" />
+    <None Include="node_modules\original\LICENSE" />
+    <None Include="node_modules\original\package.json" />
+    <None Include="node_modules\original\README.md" />
+    <None Include="node_modules\querystringify\index.js" />
+    <None Include="node_modules\querystringify\LICENSE" />
+    <None Include="node_modules\querystringify\package.json" />
+    <None Include="node_modules\querystringify\README.md" />
+    <None Include="node_modules\requires-port\.npmignore" />
+    <None Include="node_modules\requires-port\.travis.yml" />
+    <None Include="node_modules\requires-port\index.js" />
+    <None Include="node_modules\requires-port\LICENSE" />
+    <None Include="node_modules\requires-port\package.json" />
+    <None Include="node_modules\requires-port\README.md" />
+    <None Include="node_modules\requires-port\test.js" />
+    <None Include="node_modules\url-parse\dist\url-parse.js" />
+    <None Include="node_modules\url-parse\dist\url-parse.min.js" />
+    <None Include="node_modules\url-parse\dist\url-parse.min.js.map" />
+    <None Include="node_modules\url-parse\index.js" />
+    <None Include="node_modules\url-parse\LICENSE" />
+    <None Include="node_modules\url-parse\package.json" />
+    <None Include="node_modules\url-parse\README.md" />
+    <None Include="package-lock.json" />
     <None Include="wwwroot\index.html" />
   </ItemGroup>
 
@@ -18,11 +140,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="package-lock.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Update="package.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

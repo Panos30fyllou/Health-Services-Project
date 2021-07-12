@@ -3,56 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <llink rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="ProjectTheme.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <script>
-        
         var exports = { __esModule: true }, module = { exports: exports }
         function require(name) { return exports[name] || window[name] }
     </script>
     <script src="/js/servicestack-client.js"></script>
     <script src="/dtos.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
     <script>
-        Object.assign(window, exports)
-        
-        function SendXRay() {
-            const axios = require('axios');
-            axios.get("https://localhost:5001/", {
-                params: {
-                    Hello: new Hello({ Name: 'World' })
-                }
-            })
-                .then(function (response) {
-                    // handle success
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-                .then(function () {
-                    // always executed
+        Object.assign(window, exports); //import
+        var client = new JsonServiceClient();
+
+        function Respond(val) {
+            client.post(new Hello({ name: val }))
+                .then(function (r) {
+                    console.log(r.result);
                 });
-
-            let client = new JsonServiceClient("https://localhost:5001/");
-            let s;
-            let request = new Hello({ Name: 'World' });
-            var response = client.get(new Hello({ Name: 'World' }))
-                .then(r => {
-                    console.log(r.Result);
-                    s = r.Result;
-                    document.getElementById("description").nodeValue = r.Result.toString();
-                }).catch(
-                    function (error) {
-                        console.log(error);
-                    });
-
         }
     </script>
     <h1>Αποστολή Ακτινολογικής Εντολής</h1>
@@ -74,7 +41,7 @@
         <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
         <input type="date" id="recdate" name="recdate"><br><br>
 
-        <button type="submit" class="btn btn-primary" OnClick="SendXRay()">Αποστολή</button>
+        <button type="submit" method ="post" class="btn btn-primary" OnClick="Respond('World')">Αποστολή</button>
     </form>
 </body>
 </html>

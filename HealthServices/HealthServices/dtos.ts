@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-07-08 13:59:02
+Date: 2021-07-12 18:14:39
 Version: 5.111
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -43,50 +43,16 @@ export enum XRayType
     Lungs = 5,
 }
 
-export enum Gender
-{
-    Man = 1,
-    Woman = 2,
-}
-
-export class Patient
-{
-    public id: number;
-    public name: string;
-    public surname: string;
-    public fathersName: string;
-    public mothersName: string;
-    public healthID: string;
-    public gender: Gender;
-    public dateOfBirth: string;
-    public street: string;
-    public number: number;
-    public postalCode: number;
-    public numbersOfContact: string[];
-
-    public constructor(init?: Partial<Patient>) { (Object as any).assign(this, init); }
-}
-
-export class Doctor
-{
-    public id: string;
-    public name: string;
-    public surname: string;
-    public department: string;
-
-    public constructor(init?: Partial<Doctor>) { (Object as any).assign(this, init); }
-}
-
 export class Appointment
 {
     public id: number;
     public dateofAppointment: string;
-    public setDate: string;
-    public patient: Patient;
+    public dateSent: string;
+    public patientId: number;
     public priority: Priority;
     public reason: string;
     public xRayType: XRayType;
-    public doctor: Doctor;
+    public doctorId: number;
 
     public constructor(init?: Partial<Appointment>) { (Object as any).assign(this, init); }
 }
@@ -101,7 +67,7 @@ export class HelloResponse
 export class XRayResponse
 {
     public success: boolean;
-    public appointment: Appointment;
+    public xRayAppointment: Appointment;
 
     public constructor(init?: Partial<XRayResponse>) { (Object as any).assign(this, init); }
 }
@@ -117,12 +83,13 @@ export class Hello implements IReturn<HelloResponse>
     public getTypeName() { return 'Hello'; }
 }
 
+// @Route("/XrayRequest")
 export class XRayRequest implements IReturn<XRayResponse>
 {
     public priority: Priority;
     public description: string;
-    public setDate: string;
-    public recomendedDate: string;
+    public dateSent: string;
+    public recommendedDate: string;
     public xRayType: XRayType;
 
     public constructor(init?: Partial<XRayRequest>) { (Object as any).assign(this, init); }
