@@ -48,7 +48,7 @@ namespace HealthServices
             {
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
-
+            DatabaseController.Initialize(AppSettings.Get<String>("ConnectionStrings:conn_string"));
             //XRayActions xRayActions = new XRayActions();
             //XRayRequest xRayRequest = new XRayRequest() { Description = "perigrafiii", Priority = Priority.High, RecommendedDate = DateTime.Now.AddDays(2), DateSent = DateTime.Now, XRayType = XRayType.LowerBody };
             //XRayResponse xRayResponse = xRayActions.Post(xRayRequest);

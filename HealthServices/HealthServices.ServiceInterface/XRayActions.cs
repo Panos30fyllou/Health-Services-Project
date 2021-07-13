@@ -13,8 +13,7 @@ namespace HealthServices.ServiceInterface
     {
         public XRayResponse Post(XRayRequest request)
         {
-            string connectionString = "Server=DESKTOP-5M7O03L;Database=HealthServices;Trusted_Connection=True;";
-            DatabaseController.Initialize(connectionString);
+            
             var db = DatabaseController.dbFactory.OpenDbConnection();
 
             //db.CreateTable<Doctor>();
@@ -34,44 +33,62 @@ namespace HealthServices.ServiceInterface
             Doctor selectedDoctor = db.Single<Doctor>(x => x.NumberOfAppointments == min);
 
             //Gets a list of all the appointments
-            List<Appointment> appointments = db.Select<Appointment>();
+            List<Appointment> appointments = db.Select<Appointment>(x => x.DoctorId == selectedDoctor.Id);
 
             //Finds if there is an appointment in the db that conflicts with the request
             bool conflict = false;
-            Appointment appointmentInConflict = new Appointment() { Priority = Priority.Low };
-            foreach (Appointment appointment in appointments)
+            Appointment appointmentInConflict = CreateAppointmentFromRequest(request, selectedDoctor);
+            for (int i = 0; i < appointments.Count; i++)
             {
-                if (DatesAreEqual(appointment.DateofAppointment, request.RecommendedDate))
+                if (DatesAreEqual(appointments[i].DateofAppointment, appointmentInConflict.DateofAppointment))
                 {
                     conflict = true;
-                    if (appointment.Priority <= appointmentInConflict.Priority)
+                    if (appointments[i].Priority >= appointmentInConflict.Priority)
                     {
-                        request.RecommendedDate = request.RecommendedDate.AddHours(1);
-                        appointmentInConflict = appointment;
+                        appointmentInConflict.DateofAppointment = appointmentInConflict.DateofAppointment.AddHours(1);
+                        //appointmentInConflict = appointments[i];
                     }
+                    else
+                    {
+                        if (appointmentInConflict.Id == -1)
+                            db.Insert<Appointment>(appointmentInConflict);
+                        else
+                            db.Update(appointmentInConflict);
+                        appointmentInConflict = appointments[i];
+                        appointments = db.Select<Appointment>(x => x.DoctorId == selectedDoctor.Id);
+                    }
+                    i = 0;
                 }
             }
-
-            //If there is a conflict, it resolves it first, and then creates an appointment to return
-            Appointment appointmentAdded;
-            if (conflict)
-                appointmentAdded = ResolveConflict(db, appointmentInConflict, request, selectedDoctor);
+            if (appointmentInConflict.Id == -1)
+                db.Insert<Appointment>(appointmentInConflict);
             else
-            {
-                Appointment appointment = CreateAppointmentFromRequest(request, selectedDoctor);
-                db.Insert<Appointment>(appointment);
-                appointmentAdded = appointment;
-            }
+                db.Update(appointmentInConflict);
 
-            db.Close();
-
-            return new XRayResponse()
+            XRayResponse xRayResponse = new XRayResponse()
             {
                 Success = true,
-                XRayAppointment = appointmentAdded
+                XRayAppointment = db.Single<Appointment>(x => x.PatientId == -1)
             };
+            db.Close();
+
+            return xRayResponse;
+
+            ////If there is a conflict, it resolves it first, and then creates an appointment to return
+            //Appointment appointmentAdded;
+            //if (conflict)
+            //    appointmentAdded = ResolveConflict(db, appointmentInConflict, request, selectedDoctor);
+            //else
+            //{
+            //    Appointment appointment = CreateAppointmentFromRequest(request, selectedDoctor);
+            //    db.Insert<Appointment>(appointment);
+            //    appointmentAdded = appointment;
+            //}
+
+
         }
 
+        /*
         public Appointment ResolveConflict(IDbConnection db, Appointment appointment, XRayRequest request, Doctor selectedDoctor) {
             Appointment appointmentForDb;
             if (request.Priority > appointment.Priority)
@@ -81,6 +98,7 @@ namespace HealthServices.ServiceInterface
             return appointmentForDb;
         }       
 
+        
         public Appointment MoveAppointments(IDbConnection db, Appointment appointmentToBeMoved, XRayRequest request, Doctor selectedDoctor)
         {
             Appointment newAppointment = CreateAppointmentFromRequest(request, selectedDoctor);
@@ -125,22 +143,27 @@ namespace HealthServices.ServiceInterface
             db.Insert<Appointment>(appointmentAdded);
             return appointmentAdded;
         }
-
+        */
         public Appointment CreateAppointmentFromRequest(XRayRequest request, Doctor selectedDoctor) {
             Appointment appointmentRequested = new Appointment();
+            appointmentRequested.Id = -1;
             appointmentRequested.Priority = request.Priority;
             appointmentRequested.Reason = request.Description;
             appointmentRequested.DateofAppointment = request.RecommendedDate;
             appointmentRequested.DateSent = request.DateSent;
             appointmentRequested.XRayType = request.XRayType;
             appointmentRequested.DoctorId = selectedDoctor.Id;
+            appointmentRequested.PatientId = -1;
 
             return appointmentRequested;
         }
 
         private bool DatesAreEqual(DateTime dt1, DateTime dt2)
         {
-            return dt1.Date.Equals(dt2.Date) && dt1.Hour.Equals(dt2.Hour);
+            if(dt1.Hour > dt2.Hour)
+                return dt1.Date.Equals(dt2.Date) && dt1.Hour.Equals(dt2.Hour) && dt1.Minute >= dt2.Minute;
+            else
+                return dt1.Date.Equals(dt2.Date) && dt1.Hour.Equals(dt2.Hour) && dt1.Minute <= dt2.Minute;
         }
         public DeleteAppointmentResponse Delete(DeleteAppointmentRequest request)
         {

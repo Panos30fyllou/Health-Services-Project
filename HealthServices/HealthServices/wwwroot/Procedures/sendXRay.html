@@ -15,8 +15,11 @@
         Object.assign(window, exports); //import
         var client = new JsonServiceClient();
 
-        function Respond(val) {
-            if (document.getElementById('importance').value == null || document.getElementById('description').value == null || document.getElementById('sentdate').value == null || document.getElementById('recdate').value == null) {
+        async function Respond(val) {
+            var importanceValue = document.getElementById('importance').value;
+            var descriptionValue = document.getElementById('description').value;
+            var sentDateValue = document.getElementById('sentdate').value;
+            if (document.getElementById('description').value == "" || document.getElementById('sentdate').value == "" || document.getElementById('recdate').value == "") {
                 alert("Please fill all the informations that are requested below!")
             }
             else {
@@ -32,7 +35,7 @@
                 }
                 request.Description = document.getElementById('description').value;
                 request.DateSent = document.getElementById('sentdate').value;
-                request.RecomendedDate = document.getElementById('recdate').value;
+                request.RecommendedDate = document.getElementById('recdate').value;
                 if (document.getElementById('xraytype').value == "UpperBody") {
                     request.XRayType = XRayType.UpperBody;
                 }
@@ -48,13 +51,13 @@
                 else {
                     request.XRayType = XRayType.Lungs;
                 }
-                var response = client.post(request);
+                var response = await client.post(request);
                 if (response.Success) {
                     var confirmed = confirm('Your Appointment is at ' + r.XRayAppointment.DateOfAppointment)
                     if (confirmed == true) {
                         window.location.href = "arrangementXRay.html";
                     } else {
-                        var response1 = client.delete(new DeleteAppointmentRequest());
+                        var response1 = await client.delete(new DeleteAppointmentRequest());
                         if (response1.Success) {
                             alert("Your Appointment is cancelled");
                         }
@@ -81,10 +84,12 @@
         <input type="text" id="description" name="description"><br><br>
 
         <label for="sentdate">Ημερομηνία αποστολής ακτονολογικής εντολής:</label>
-        <input type="date" id="sentdate" name="sentdate"><br><br>
+        <input type="datetime-local" id="sentdate" name="sentdate">
+        <br><br>
 
         <label for="recdate">Προτεινόμενη ημερομηνία εκτέλεσης εντολής:</label>
-        <input type="date" id="recdate" name="recdate"><br><br>
+        <input type="datetime-local" id="recdate" name="recdate">
+        <br><br>
 
         <label for="type">Τύπος Εξετάσεων:</label>
         <select name="type" id="xraytype">
